@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recording Page</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/recording.js" defer></script>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html"> 
+            <img src="../components/NavBar.png" alt="App Logo" class="navbarLogo">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gameHome.html">Play Game</a></li>
+                <li><a href="recording.html">Record</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle">☰</button>
+    </div>
+
+    <!-- POPUP MENU -->
+    <div class="nav-popup">
+        <div class="popup-content">
+            <span class="close-menu">✖</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gameHome.html">Play Game</a></li>
+                <li><a href="recording.html">Record</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>    
+
+
+    <div class="container">
+        <h2>Recording Page</h2>
+        <!-- Instructions Card -->
+        <div class="instructions-card">
+            <h2>Instructions</h2>
+            <p>Please make sure the camera is well secured to your body.</p>
+            <p>Recordings will occur randomly for this session.</p>
+            <p>Press the <span class="green">GREEN</span> button to start recording.</p>
+            <p>To stop early, press the <span class="red">RED</span> button on the Home Page.</p>
+            <p>Videos can be deleted after they are taken.</p>
+        </div>
+
+        <!-- Start Session Button -->
+        <button id="startSessionBtn" class="primary-btn">Begin Session</button>
+    </div>
+
+    <script src="scripts/popup.js"></script>
+    <script src="scripts/game.js"></script>
+
+</body>
+</html>

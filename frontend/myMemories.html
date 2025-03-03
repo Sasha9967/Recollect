@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Game</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/popup.js"></script>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html"> 
+            <img src="../components/NavBar.png" alt="App Logo" class="navbarLogo">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gameHome.html">Play Game</a></li>
+                <li><a href="recording.html">Record</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle">☰</button>
+    </div>
+
+    <!-- POPUP MENU -->
+    <div class="nav-popup">
+        <div class="popup-content">
+            <span class="close-menu">✖</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gameHome.html">Play Game</a></li>
+                <li><a href="recording.html">Record</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>  
+
+    <div class="container">
+        <div class="question-box">My Memories</div>
+
+        <!-- Video Selection Dropdown -->
+        <select id="videoSelect">
+            <option value="" disabled selected>Select a Date</option>
+        </select>
+
+        <!-- Video Display -->
+        <div class="video-container">
+            <video id="videoPlayer" controls muted autoplay>
+                <source id="videoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</body>
+</html>
