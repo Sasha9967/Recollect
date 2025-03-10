@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Game</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/playGame.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="question-box">When did this event take place?</div>
+
+        <!-- Video Display -->
+        <div class="video-container">
+            <video id="videoPlayer" controls muted autoplay>
+                <source id="videoSource" src=""; type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Calendar -->
+        <div class="calendar-container">
+            <p id="selected-info">Selected: None</p>
+            <div class="datetime-grid">
+                <div id="datetime-grid"></div>
+            </div>
+        </div>
+
+        <!-- Next/Finish Button -->
+        <button id="nextVideoBtn">Next Video</button>
+    </div>
+
+    <!-- Move script OUTSIDE of div -->
+    <script src="scripts/date_time.js"></script>
+</body>
+</html>

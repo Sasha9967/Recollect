@@ -1,0 +1,289 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    background-color: #E5EEF9; /* Optional background color */
+}
+
+.app-container {
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    margin-top: 85px;
+}
+
+
+.logo{
+    width: 15em;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    align-items: baseline;
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #666;
+}
+
+
+/* =======================
+   Buttons
+======================= */
+
+
+/* Buttons */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+}
+
+/* Standard Apple-like Buttons */
+button {
+    height: 48px;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Primary (Blue) */
+.primary-btn {
+    background-color: #007AFF;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 122, 255, 0.2);
+}
+
+.primary-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+.primary-btn:active {
+    opacity: 0.85;
+    transform: scale(0.98);
+}
+
+/* Secondary (Gray) */
+.secondary-btn {
+    background-color: white;
+    color: #007AFF;
+    border: 2px solid #007AFF;
+    box-shadow: 0px 2px 8px rgba(0, 122, 255, 0.1);
+}
+
+.secondary-btn:hover {
+    background-color: #f0f4ff;
+}
+
+/* Danger (Red) */
+.danger-btn {
+    background-color: #FF3B30;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(255, 59, 48, 0.2);
+}
+
+.danger-btn:hover {
+    background-color: #E63946;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    height: 12vh;
+    box-sizing: border-box;
+}
+
+/* LOGO */
+.navbar a {
+    display: flex;
+    align-items: center;
+}
+
+.nav-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95); /* Start slightly smaller */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* SHOW POPUP WITH BUFFER EFFECT */
+.nav-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1); /* Smoothly scale to full size */
+}
+
+/* MENU CONTENT */
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* CLOSE BUTTON */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* NAVBAR LOGO */
+.navbarLogo {
+    width: 60px;
+    height: auto;
+}
+
+/* NAVIGATION LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+/* NAV LINKS */
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #007AFF;
+}
+
+/* HAMBURGER MENU BUTTON */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 2000;
+}
+/* POPUP MENU STYLES */
+.nav-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85); /* Dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* SHOW POPUP WHEN ACTIVE */
+.nav-popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* MENU CONTENT */
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.popup-content li {
+    margin: 20px 0;
+}
+
+.popup-content a {
+    color: black;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.popup-content a:hover {
+    color: #007AFF;
+}
+
+/* CLOSE BUTTON */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* RESPONSIVE: SHOW MENU BUTTON */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide default nav */
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger */
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recollect</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="scripts/index.js" defer></script>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="index.html"> 
+            <img src="../components/NavBar.png" alt="App Logo" class="navbarLogo">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gameHome.html">Play Game</a></li>
+                <li><a href="recording.html">Record</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle">☰</button>
+    </div>
+
+    <!-- POPUP MENU -->
+    <div class="nav-popup">
+        <div class="popup-content">
+            <span class="close-menu">✖</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gameHome.html">Play Game</a></li>
+                <li><a href="recording.html">Record</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>  
+
+    <div class="app-container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <img src="../components/RecollectLogo.png" alt="App Logo" class="logo">
+            <h1>Recollect</h1>
+            <p class="subtitle">Please select one of the options to continue.</p>
+        </div>
+
+        <!-- Button Actions -->
+        <div class="button-container">
+            <button class="primary-btn" onclick="navigateTo('gameHome.html')">Play Game</button>
+            <button class="secondary-btn" onclick="navigateTo('recording.html')">Start a Recording</button>
+            <button id="stopSessionBtn" class="danger-btn">Stop Session</button>
+        </div>
+    </div>
+
+</body>
+</html>

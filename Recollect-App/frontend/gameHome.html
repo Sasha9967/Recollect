@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Page</title>
+    <link rel="stylesheet" href="styles/style.css"> <!-- Link your CSS -->
+    <script src="scripts/startGame.js"></script>
+    <script src="scripts/popup.js"></script>
+
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html"> 
+            <img src="../components/NavBar.png" alt="App Logo" class="navbarLogo">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gameHome.html">Play Game</a></li>
+                <li><a href="recording.html">Record</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle">☰</button>
+    </div>
+
+    <!-- POPUP MENU -->
+    <div class="nav-popup">
+        <div class="popup-content">
+            <span class="close-menu">✖</span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gameHome.html">Play Game</a></li>
+                <li><a href="recording.html">Record</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>  
+
+
+    <div class="container">
+    <h2>Game Page</h2>
+
+    <section class="instructions-card">
+        <h2>Instructions</h2>
+        <hr>
+        <ul>
+            <li>Once the game has started, you must complete it.</li>
+            <li>Press the <span class="highlight">GREEN</span> button to begin.</li>
+            <li>You’ll be shown video prompts and must identify the time and place.</li>
+            <li>Click the video to watch.</li>
+            <li>Submit using the green button that will appear at the bottom of the page.</li>
+            <li><strong>Good Luck!</strong></li>
+        </ul>
+    </section>
+
+    <button id="startGameBtn" class="primary-btn">Start Game</button>
+
+    <p id="statusMessage" class="status-message"></p>
+</div>
+
+</body>
+</html> 
