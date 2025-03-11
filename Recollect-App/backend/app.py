@@ -2,7 +2,7 @@ import os
 import random
 import time
 import cv2
-from flask import Flask, jsonify, request, send_file, render_template, send_from_directory
+from flask import Flask, jsonify, request, send_file, render_template, send_from_directory, redirect, url_for
 from flask_cors import CORS
 from datetime import datetime
 from threading import Thread
@@ -38,6 +38,10 @@ CORS(app)
 @app.route('/')
 def index():
     return render_template("index.html")
+
+@app.route('/redirect_to_index')
+def redirect_to_index():
+    return redirect(url_for('index'))
 
 @app.route('/recording')
 def recording():

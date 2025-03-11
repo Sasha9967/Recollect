@@ -278,12 +278,32 @@ button {
 }
 
 /* RESPONSIVE: SHOW MENU BUTTON */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 0 1em;
+    }
     .nav-links {
-        display: none; /* Hide default nav */
+        display: none;
     }
 
     .menu-toggle {
-        display: block; /* Show hamburger */
+        display: block;
+    }
+
+    body {
+        height: 65vh;
+        padding-top: 12vh;
+    }
+    .app-container {
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+    }
+    .button-container {
+        gap: 1em;
+    }
+    h1 {
+        margin-bottom: 0.5em;
     }
 }

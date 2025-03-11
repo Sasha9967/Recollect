@@ -10,14 +10,14 @@
 <body>
 
     <div class="navbar">
-        <a href="index.html"> 
+        <a href="index.html" onclick="event.preventDefault(); window.location.href = '/';">
             <img src="{{ url_for('static', filename='images/NavBar.png') }}" alt="Navbar" class="navbarLogo">
         </a>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gameHome.html">Play Game</a></li>
-                <li><a href="recording.html">Record</a></li>
+                <li><a href="index.html" onclick="event.preventDefault(); window.location.href = '/';">Home</a></li>
+                <li><a href="index.html" onclick="event.preventDefault(); window.location.href = '/game';">Play Game</a></li>
+                <li><a href="index.html" onclick="event.preventDefault(); window.location.href = '/recording';">Start Recording</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
@@ -29,9 +29,9 @@
         <div class="popup-content">
             <span class="close-menu">✖</span>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gameHome.html">Play Game</a></li>
-                <li><a href="recording.html">Record</a></li>
+                <li><a href="index.html" onclick="event.preventDefault(); window.location.href = '/';">Home</a></li>
+                <li><a href="index.html" onclick="event.preventDefault(); window.location.href = '/game';">Play Game</a></li>
+                <li><a href="index.html" onclick="event.preventDefault(); window.location.href = '/recording';">Start Recording</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
