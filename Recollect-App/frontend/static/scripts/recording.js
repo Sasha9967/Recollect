@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 async function startRecording() {
     try {
         document.getElementById("startSessionBtn").disabled = true;
-        const response = await fetch('http://127.0.0.1:5000/record', {
+        const response = await fetch('http://192.168.188.199:5000/record', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
         });
@@ -23,7 +23,7 @@ async function startRecording() {
 
 async function stopRecording() {
     try {
-        const response = await fetch('http://127.0.0.1:5000/stop_recording', {
+        const response = await fetch('http://192.168.188.199:5000/stop_recording', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
         });

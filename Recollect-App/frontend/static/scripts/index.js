@@ -41,7 +41,7 @@ function navigateTo(page) {
 function stopRecording() {
     alert("Loading... Please wait.");
 
-    fetch("http://127.0.0.1:5000/stop_recording", {
+    fetch("http://192.168.188.199:5000/stop_recording", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

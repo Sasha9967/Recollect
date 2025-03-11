@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function startGame() {
         statusMessage.textContent = "Loading... Please wait.";
 
-        fetch("http://127.0.0.1:5000/start_game")
+        fetch("http://192.168.188.199:5000/start_game")
             .then(response => response.json())
             .then(data => {
                 console.log("Received data from backend:", data); // ✅ Debugging
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("Stored in sessionStorage:", sessionStorage); // ✅ Debugging
 
                 // Redirect to playGame.html
-                window.location.href = "playGame.html";
+                window.location.href = "/play";
             })
             .catch(error => {
                 statusMessage.textContent = "Failed to start game. Try again.";

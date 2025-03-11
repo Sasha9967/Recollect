@@ -49,8 +49,7 @@ def game():
 
 @app.route('/play')
 def play_game():
-    return send_from_directory(app.static_folder, "playGame.html")
-
+    return render_template("playGame.html")
 
 # Recording state flags
 is_recording = False  
