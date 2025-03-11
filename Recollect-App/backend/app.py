@@ -2,27 +2,55 @@ import os
 import random
 import time
 import cv2
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, render_template, send_from_directory
 from flask_cors import CORS
 from datetime import datetime
 from threading import Thread
 import subprocess
-import sqlite3
-from flask_sqlalchemy import SQLAlchemy
+import stat
 
-app = Flask(__name__)
-CORS(app)
+# Get base directories
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Points to backend/
+PROJECT_DIR = os.path.dirname(BASE_DIR)  # Moves up to the root (where frontend/ is)
 
-# Set up directories
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Set up correct paths
 RECORDINGS_FOLDER = os.path.join(BASE_DIR, "recordings")
 RESPONSES_FOLDER = os.path.join(BASE_DIR, "responses")
+FRONTEND_FOLDER = os.path.join(PROJECT_DIR, "frontend")  # Moves up one level to locate frontend/
 
-print(RECORDINGS_FOLDER)
+STATIC_FOLDER = os.path.join(FRONTEND_FOLDER, "static")
 
-# Ensure directories exist
+# Ensure necessary directories exist
 os.makedirs(RECORDINGS_FOLDER, exist_ok=True)
 os.makedirs(RESPONSES_FOLDER, exist_ok=True)
+
+os.chmod(RECORDINGS_FOLDER, stat.S_IRWXU | stat.S_IRGRP | stat.S_IXGRP | stat.S_IROTH | stat.S_IXOTH)
+
+# Flask app setup with corrected paths
+app = Flask(
+    __name__, 
+    template_folder=FRONTEND_FOLDER,  
+    static_folder=STATIC_FOLDER
+)
+
+CORS(app)
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+@app.route('/recording')
+def recording():
+    return render_template("recording.html")
+
+@app.route('/game')
+def game():
+    return render_template("gameHome.html")
+
+@app.route('/play')
+def play_game():
+    return send_from_directory(app.static_folder, "playGame.html")
+
 
 # Recording state flags
 is_recording = False  
@@ -42,7 +70,6 @@ def try_open_camera(rtsp_url, timeout=5):
             print("Camera connection timeout!")
             return None
     return video
-
 
 @app.route('/record', methods=['POST'])
 def start_recording():
@@ -130,9 +157,7 @@ def record_video(rtsp_url):
     os.remove(temp_avi_file)
     print(f"🗑️ Deleted temporary file: '{temp_avi_file}'")
 
-
-
-### --- GAME MANAGEMENT ROUTES --- ####################################################################
+### --- GAME MANAGEMENT ROUTES --- ###
 @app.route('/start_game', methods=['GET'])
 def start_game():
     print("Checking recordings folder:", RECORDINGS_FOLDER)
@@ -146,7 +171,6 @@ def start_game():
         return jsonify({"error": "No video files found"}), 404
     
     print("Available video files:", video_files)
-
 
     unique_dates = set()
     valid_videos = []
@@ -222,4 +246,4 @@ def submit_all_responses():
     return jsonify({"message": "Responses saved successfully", "file": response_filepath})
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
