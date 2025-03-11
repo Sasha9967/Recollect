@@ -1,18 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recollect</title>
-    <link rel="stylesheet" href="styles/index.css">
-    <script src="scripts/index.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+    <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
 </head>
 
 <body>
 
     <div class="navbar">
         <a href="index.html"> 
-            <img src="../components/NavBar.png" alt="App Logo" class="navbarLogo">
+            <img src="{{ url_for('static', filename='images/NavBar.png') }}" alt="Navbar" class="navbarLogo">
         </a>
         <nav>
             <ul class="nav-links">
@@ -41,18 +42,20 @@
     <div class="app-container">
         <!-- Hero Section -->
         <div class="hero">
-            <img src="../components/RecollectLogo.png" alt="App Logo" class="logo">
+            <img src="{{ url_for('static', filename='images/RecollectLogo.png') }}" alt="App Logo" class="logo">
             <h1>Recollect</h1>
             <p class="subtitle">Please select one of the options to continue.</p>
         </div>
 
         <!-- Button Actions -->
         <div class="button-container">
-            <button class="primary-btn" onclick="navigateTo('gameHome.html')">Play Game</button>
-            <button class="secondary-btn" onclick="navigateTo('recording.html')">Start a Recording</button>
+            <button class="primary-btn" onclick="navigateTo('/game')">Play Game</button>
+            <button class="secondary-btn" onclick="navigateTo('/recording')">Start a Recording</button>
+
+            <!-- <button class="primary-btn" onclick="navigateTo('gameHome.html')">Play Game</button>
+            <button class="secondary-btn" onclick="navigateTo('recording.html')">Start a Recording</button> -->
             <button id="stopSessionBtn" class="danger-btn">Stop Session</button>
         </div>
     </div>
-
 </body>
 </html>

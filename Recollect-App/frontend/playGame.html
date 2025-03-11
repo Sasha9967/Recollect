@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Game</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/playGame.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <script src="{{ url_for('static', filename='scripts/playGame.js') }}"></script>
 </head>
 <body>
     <div class="container">
@@ -32,6 +32,6 @@
     </div>
 
     <!-- Move script OUTSIDE of div -->
-    <script src="scripts/date_time.js"></script>
+    <script src="{{ url_for('static', filename='scripts/date_time.js') }}"></script>
 </body>
 </html>

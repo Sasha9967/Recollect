@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Game</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/popup.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <script src="{{ url_for('static', filename='scripts/popup.js') }}"></script>
 </head>
 <body>
 
     <div class="navbar">
         <a href="index.html"> 
-            <img src="../components/NavBar.png" alt="App Logo" class="navbarLogo">
+            <img src="{{ url_for('static', filename='images/NavBar.png') }}" alt="Navbar">
         </a>
         <nav>
             <ul class="nav-links">
