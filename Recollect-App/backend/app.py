@@ -80,10 +80,10 @@ def start_recording():
     global is_recording, stop_requested
     
     if is_recording:
-        print("⚠️ Already recording! Rejecting new request.")
+        print("Already recording! Rejecting new request.")
         return jsonify({"message": "Recording is already in progress"}), 400
 
-    # ✅ Ensure camera is accessible before starting recording
+    # Ensure camera is accessible before starting recording
     rtsp_url = "rtsp://192.168.188.1/172FE627972B8FA0D41A96318A50EDBE&0"
     video = try_open_camera(rtsp_url, timeout=10)
 
@@ -93,12 +93,12 @@ def start_recording():
     stop_requested = False  
     is_recording = True  
 
-    # ✅ Start the recording in a separate thread
+    # Start the recording in a separate thread
     thread = Thread(target=record_video, args=(rtsp_url,))
     thread.daemon = True
     thread.start()
 
-    print("🎥 Recording started...")
+    print("Recording started...")
     return jsonify({"message": "Recording started"}), 200
 
 @app.route('/stop_recording', methods=['POST'])
@@ -117,6 +117,8 @@ def record_video(rtsp_url):
     is_recording = True
 
     timestamp = time.strftime("%Y-%m-%d-%H-%M-%S")
+    print(f"Deleted temporary file: '{timestamp}'")
+
     temp_avi_file = os.path.join(RECORDINGS_FOLDER, f"{timestamp}.avi")  # Temporary file
     output_mp4_file = os.path.join(RECORDINGS_FOLDER, f"{timestamp}.mp4")  # Final MP4 output
 
@@ -154,11 +156,11 @@ def record_video(rtsp_url):
     ffmpeg_cmd = f"ffmpeg -y -i {temp_avi_file} -vcodec libx264 {output_mp4_file}"
     subprocess.run(ffmpeg_cmd, shell=True, check=True)
 
-    print(f"🎥 Converted to MP4: '{output_mp4_file}'")
+    print(f"Converted to MP4: '{output_mp4_file}'")
 
     # ✅ Delete the temporary AVI file
     os.remove(temp_avi_file)
-    print(f"🗑️ Deleted temporary file: '{temp_avi_file}'")
+    print(f"Deleted temporary file: '{temp_avi_file}'")
 
 ### --- GAME MANAGEMENT ROUTES --- ###
 @app.route('/start_game', methods=['GET'])
@@ -236,7 +238,7 @@ def submit_all_responses():
     if not isinstance(responses, list) or len(responses) == 0:
         return jsonify({"error": "No responses provided"}), 400
 
-    # ✅ Format and write responses to a single file
+    # Format and write responses to a single file
     response_filename = f"{session_id}.txt"
     response_filepath = os.path.join(RESPONSES_FOLDER, response_filename)
 
@@ -244,7 +246,8 @@ def submit_all_responses():
         for response in responses:
             file.write(f"Selected Date: {response['selected_date']}\n")
             file.write(f"Selected Time: {response['selected_time']}\n")
-            file.write(f"Selected Video: {response['selected_video']}\n\n")
+            file.write(f"Correct Video Date: {response['selected_video_day']}\n")
+            file.write(f"Correct Video Time: {response['selected_video_time']}\n\n")
 
     return jsonify({"message": "Responses saved successfully", "file": response_filepath})
 

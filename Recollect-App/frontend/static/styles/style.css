@@ -12,7 +12,7 @@ body {
     text-align: center;
     width: 90%;
     max-width: 400px;
-    padding: 20px;
+    padding: 1em;
 }
 
 
@@ -232,7 +232,7 @@ body {
 /* 🏷️ Stylish Question Box */
 .question-box {
     background: #f8f9fd; /* Soft background */
-    padding: 15px;
+    padding: 1em;
     border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     font-size: 18px;
